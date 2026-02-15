@@ -7,71 +7,72 @@
 
 <style>
 body {
-  margin:0;
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  background-image: url(Photoroom_20260215_110840.jpeg);
+  background-image: url("Photoroom_20260215_110840.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .container {
-    text-align:center;
+  text-align: center;
 }
 
-.button-row {
-    display:flex;
-    gap:40px;
-    justify-content:center;
-    margin-bottom:40px;
+/* 🔥 이미지 버튼 스타일 */
+.menu-container {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
 }
 
-button {
-    width:220px;
-    height:80px;
-    border:none;
-    border-radius:20px;
-    font-size:20px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+.menu-btn img {
+  width: 200px;
+  transition: 0.3s ease;
+  cursor: pointer;
 }
 
-button:hover {
-    transform:translateY(-5px);
-    box-shadow:0 15px 35px rgba(0,0,0,0.3);
+.menu-btn img:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 20px rgba(0,255,255,0.7));
 }
 
-.history { background:#ffffff; }
-.character { background:#e6f0ff; }
-.terms { background:#f5f5f5; }
+/* 📱 모바일 대응 */
+@media (max-width: 768px) {
+  .menu-container {
+    flex-direction: column;
+    gap: 25px;
+  }
 
+  .menu-btn img {
+    width: 160px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <div class="container">
+  <div class="menu-container">
+    <a href="lore/world.html" class="menu-btn">
+      <img src="assets/images/world.png" alt="세계관">
+    </a>
 
-    <div class="button-row">
-        <button class="history" onclick="location.href='history.html'">
-            세계관(역사)
-        </button>
+    <a href="characters/index.html" class="menu-btn">
+      <img src="assets/images/character.png" alt="캐릭터">
+    </a>
 
-        <button class="character" onclick="location.href='character.html'">
-            캐릭터 소개
-        </button>
-    </div>
-
-    <button class="terms" onclick="location.href='terms.html'">
-        세계관 용어
-    </button>
-
+    <a href="lore/network.html" class="menu-btn">
+      <img src="assets/images/network.png" alt="세력">
+    </a>
+  </div>
 </div>
 
 </body>
